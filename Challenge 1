@@ -1,0 +1,28 @@
+#So, this first problem is: Create a program that asks the user to enter their name and their age. 
+#Print out a message addressed to them that tells them the year that they will turn 100 years old.
+
+#So this first part is asking the user to import something
+#It is going to be caputerd as a string, and a small variable likely 2 digits.
+#I can write a function that converts the age to a year, and into a year of when they will turn one hundred. 
+##I think it would be cool to get the current year, and to subtract and do it that way. 
+
+
+
+class TurnOneHundred: 
+  today = date.today()
+  todayDate = today.strftime("%d/%m/%Y")
+  TodayYear = todayDate[6:]
+  def __init__(self, name, age, date):
+    self.name = name
+    self.age = age
+    self.date = date
+  def FindOneHundredYears(self, age, date):
+    AgeDateMinus = (100 - int(self.age)) + int(self.date)
+    print("You will turn 100 in the year " + str(AgeDateMinus))
+
+InputName = input("Enter Your Name: " )
+InputAge = input("Enter Your Age: ")  
+
+
+Person1 = TurnOneHundred(InputName, InputAge, TodayYear)
+Person1.FindOneHundredYears(InputAge, TodayYear)
