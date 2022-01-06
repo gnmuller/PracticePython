@@ -1,0 +1,17 @@
+#Take a list, say for example this one:
+
+#a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89] and write a program that prints out all the elements of the list that are less than 5.
+
+#Okay so again if I wanted to use classes, I could. But the list given is really short, and pre-defined, but whatever
+#Okay so one idea is to sort the list, and then iterate through the list
+
+def ListFindLessThenFive (list):
+  list.sort()
+  NewListLessThenFive = []
+  for i in list:
+    if i < 5:
+      NewListLessThenFive.append(i)
+  return print(NewListLessThenFive)
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89] 
+ListFindLessThenFive(a)
