@@ -1,0 +1,32 @@
+#Generate a random number between 1 and 9 (including 1 and 9). 
+#Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right.
+
+
+#So, the first thing is to create a random number between 1 and 9
+#i also have to decide what is to high or to low, I want to do four quadrants. 
+#So if the answer is 5 +/-2 would be close high/low +/-4 far high/low. I am also going to add a 4+ since the numbers aren't that big, could maybe divide them if larger
+#Okay so, I think need to add whether or not the number is actually higher or lower. 
+
+def NumberGuessHelper (UserNumber, RealNumber):
+  RealMinusUserNum = RealNumber - UserNumber
+  #print("The minus result is: " + str(RealMinusUserNum))
+  if UserNumber <1 or UserNumber >9:
+    return print("Number Not in Range")
+  if UserNumber - RealNumber == 0:
+      print("Great Job")
+  if UserNumber > RealNumber: 
+    if UserNumber - RealNumber <= 2:
+      print("You are a little high")
+    elif UserNumber - RealNumber >=3:
+      print("You are very high")      
+  if UserNumber < RealNumber:
+    if UserNumber - RealNumber <= -2:
+      print ("You are a little low")
+    elif UserNumber - RealNumber <= -3:
+      print("You are very low")
+
+RandomNumberOneThroughTen = random.randrange(1,9,1)
+UserInputNumber = int(input("Guess a number: "))
+
+NumberGuessHelper(UserInputNumber, RandomNumberOneThroughTen)
+print("This is the random number " + str(RandomNumberOneThroughTen))
