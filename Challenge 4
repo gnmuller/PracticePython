@@ -1,0 +1,27 @@
+#Using the requests and BeautifulSoup Python libraries, 
+#print to the screen the full text of the article on this website: https://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture
+-----
+#So the first thing that needs to happen is a request has to be made between the website and the code
+
+import requests
+from bs4 import BeautifulSoup
+page = requests.get("https://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture")
+page
+
+#Next is to examine the structre of the page
+
+page.content
+
+#yikes this ugly and gross
+
+ArticleParsed = BeautifulSoup(page.content, 'html.parser')
+#print(ArticleParsed.prettify())
+
+#Still not great, but better
+#Next step is to actually parse this out, so let's start with the paragraphs
+ArticleParsedList = ArticleParsed.find_all('p', text = True)
+
+#This is good, but still needs some actual stripping of the "Useless" Computer language
+
+for i in ArticleParsedList:
+  print (i.get_text(strip = True))
