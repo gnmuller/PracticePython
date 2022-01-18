@@ -1,0 +1,46 @@
+#The aim of this challenge is to write our own function called randomOddNumber() to
+#generate a random odd number within a given range and a another function called randomEvenNumber()
+#to generate a random even number. Both functions will take two parameters, the lower and higher values of the range.
+
+#OKay so writing random Odd number, and an random even number both need parameters
+#so, lets say I give it 1, and 100
+#Isn't there something with stepping
+#There is defintly something here with Modulus
+#If you divide every number by two then it becomes even
+def  randomOddNumber(lownum, highnum):
+  lownum = lownum //2
+  highnum = highnum //2
+  number = random.randint(lownum, highnum)
+  number = (number*2) + 1
+  return number
+
+oddNumber = randomOddNumber(0,100) 
+print(oddNumber)
+
+
+import random
+
+#Method #2: Using an algorithm based on iteration
+#So it itereate using modules
+def randomOddNumber(a,b):
+  number = random.randint(a,b)
+  while number % 2 == 0:
+    number = random.randint(a,b)
+  
+  return number
+  
+oddNumber = randomOddNumber(0,100) 
+print(oddNumber)
+
+
+#Same as the one above, but instead of a new random number, just take the even number, and plus 1
+#Method #3: Using an algorithm based on selection
+def randomOddNumber(a,b):
+  number = random.randint(a,b-1)
+  if number % 2 == 0:
+    number = number + 1
+  
+  return number
+  
+oddNumber = randomOddNumber(0,100) 
+print(oddNumber)
